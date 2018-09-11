@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="\clothbox\public_html\js\main.js"></script>
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </head>
 <body>
 <!-- -->
@@ -29,9 +35,18 @@
       <li><a href="#">Campaigns</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href=<?php echo '\clothbox\public_html\views\login.php'?>><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+      <?php
+      session_start();
+      if(!isset($_SESSION['username'])){
+        echo "<li><a href='\clothbox\public_html\\views\signup.php'><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>";
+        echo "<li><a href='\clothbox\public_html\\views\login.php'><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>";
+      }
+      else{
+        echo "<li><a href='#'>".$_SESSION['username']."</a></li>";        
+        echo "<li><a href='\clothbox\public_html\controller\logoutController.php'><span class=\"glyphicon glyphicon-log-out\"></span> Logout</a></li>";
+      }
+        ?>
+      </ul>
   </div>
 </nav>
   

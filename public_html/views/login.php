@@ -13,10 +13,10 @@
                 </div>
                 <form id="Login" method="Post" action="/clothbox/public_html/controller/loginController.php">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email Address">
+                        <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email Address" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" required>
                     </div>
                     <div class="forgot">
                         <a href="reset.html">Forgot password?</a>
