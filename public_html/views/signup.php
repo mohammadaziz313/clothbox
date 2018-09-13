@@ -8,36 +8,54 @@
             <form method="post" action="\clothbox\public_html\controller\signupController.php" id="Logout">
                 <div class="col-md-6">
 				    <h3 class="dark-grey">Registration</h3>
+                    <div class="row">
                         <div class="form-group col-lg-6">
                             <label>First Name</label>
-                            <input type="text" class="form-control" id="fname" name="fname" required onkeyup="validateName();">
+                            <input type="text" class="form-control" id="fname" name="fname" required onkeyup="validateName(this);">
                         </div>
-                        
+                        <div class="form-group col-lg-6">
+                            <br><br>
+                            <div id="fnamealert"></div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="form-group col-lg-6">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" id="lname" name="lname" required onkeyup="validateName();">
+                            <input type="text" class="form-control" id="lname" name="lname" required onkeyup="validateName(this);">
                         </div>
-
+                        <div class="form-group col-lg-6">
+                            <br><br>
+                            <div id="lnamealert"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
                         <div class="form-group col-lg-6">
                             <label>Password</label>
                             <input type="password" name="pass1" class="form-control" id="pass1" required onkeyup="validatePass();">
                         </div>
-                        
+                    </div>
+                    <div class="row">    
                         <div class="form-group col-lg-6">
                             <label>Repeat Password</label>
                             <input type="password" name="pass2" class="form-control" id="pass2" required onkeyup="checkPass();">
                         </div>
-                                        
                         <div class="form-group col-lg-6">
-                            <label>Email Address</label>
-                            <input type="email" name="email1" class="form-control" id="email1" required>
+                            <br><br>
+                            <div id="pass2alert"></div>
                         </div>
-                        
+                    </div>
+                    <div class="row">    
+                        <div class="form-group col-lg-8">
+                            <label>Email Address</label>
+                            <input type="email" name="email" class="form-control" id="email" required onfocusout="emailCheck();">
+                        </div>
                         <div class="form-group col-lg-6">
-                            <label>Repeat Email Address</label>
-                            <input type="email" name="email2" class="form-control" id="email2" required onkeyup="checkEmail();">
+                            <br><br>
+                            <div id="emailalert"></div>
                         </div>			
-                        
+                    </div>
+                    <div class="row">
                         <div class="form-group col-lg-4">
                             <label>Type Of Account</label>
                         </div>
@@ -47,8 +65,9 @@
                         </div>
 
                         <div class="form-group col-lg-4">
-                        <input type="checkbox" class="checkbox" value="collector" id="check2" name="check2" onclick="isChecked();"/>Collector
+                            <input type="checkbox" class="checkbox" value="collector" id="check2" name="check2" onclick="isChecked();"/>Collector
                         </div>
+                    </div>
                         <input type="hidden" id="status" name="status" value="connect">
                         <!--div class="col-sm-6">
                             <input type="checkbox" class="checkbox" />Send notifications to this email
