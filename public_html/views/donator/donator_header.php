@@ -22,10 +22,10 @@
 <nav class="navbar navbar-inverse sticky" id="topNav">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href=<?php echo '\clothbox\public_html\views\donator.php'?>>Cloth Box</a>
+      <a class="navbar-brand" href=<?php echo '\clothbox\public_html\views\donator\donator.php'?>>Cloth Box</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="\clothbox\public_html\views\donator.php">Home</a></li>
+      <li class="active"><a href="\clothbox\public_html\views\donator\donator.php">Home</a></li>
       <li><a href="#">About Us</a></li>
       <li><a href="#">Campaigns</a></li>
     </ul>
@@ -39,8 +39,9 @@
       <?php else: ?>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['fname']." ".$_SESSION['lname']?><span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Donations</a></li>
+                <li><a href="\clothbox\public_html\views\donator\profile.php">Profile</a></li>
+                <li><a href="\clothbox\public_html\views\donator\donations.php">Donations</a></li>
+                <li><a href="\clothbox\public_html\views\donator\settings.php">Security Settings</a></li>
                 <!--li><a href="#"></a></li-->
             </ul>
         </li>

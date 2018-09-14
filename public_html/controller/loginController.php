@@ -1,10 +1,10 @@
 <?php
-    echo "<script>console.log('outside');</script>";
+    //echo "<script>console.log('outside');</script>";
     //echo $_POST['inputEmail'];
     if($_SERVER['REQUEST_METHOD']=='POST'){  
         if(isset($_POST['status'])){
                 if($_POST['status'] == "connect"){
-                    echo "<script>console.log('inside');</script>";
+                    //echo "<script>console.log('inside');</script>";
                     $uname = $_POST['inputEmail'];
                     $upass = $_POST['inputPassword'];
                     //echo $uname;
@@ -49,6 +49,7 @@
                             }
                             else{
                                 $location = '\clothbox\public_html\views\\';
+                                $location.=$_SESSION["role"].'\\';
                                 $location.=$_SESSION["role"];
                                 $location.='.php';
                             }

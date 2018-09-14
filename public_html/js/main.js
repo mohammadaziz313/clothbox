@@ -27,14 +27,20 @@ function validatePass(){
 function checkPass(){
     var pass1 = document.getElementById('pass1').value;
     var pass2 = document.getElementById('pass2').value;
-    if(pass1!==pass2){
-        var k = '<span class="glyphicon glyphicon-warning-sign" style="color:red"></span> Passwords do not match';
-        document.getElementById('pass2alert').innerHTML=k;
+    if(pass2){
+        if(pass1!==pass2){
+            var k = '<span class="glyphicon glyphicon-warning-sign" style="color:red"></span> Passwords do not match';
+            document.getElementById('pass2alert').innerHTML=k;
+        }
+        else{
+            var k = '<span class="glyphicon glyphicon-ok" style="color:green"></span> Passwords match';
+            document.getElementById('pass2alert').innerHTML=k;
+        }
     }
     else{
-        var k = '<span class="glyphicon glyphicon-ok" style="color:green"></span> Passwords match';
-        document.getElementById('pass2alert').innerHTML=k;
+        document.getElementById('pass2alert').innerHTML=' ';
     }
+
 }
 
 function emailCheck(){
