@@ -24,10 +24,22 @@
                             if($r[1] === $uname && $r[3]===$upass){
                                 $flag = true;
                                 echo "<script>console.log('Found');</script>";
+                                $query = "Select firstName,lastName from ".$r[2]."s where email='".$uname."'";
+                                $pdostat = $conn->prepare($query);
+                                $pdostat->execute();
+                                $result = $pdostat->fetchAll(PDO::FETCH_NUM);
+                                $fname = "";
+                                $lname = "";
+                                foreach($result as $r1){
+                                    $fname = $r1[0];
+                                    $lname = $r1[1];
+                                }
                                 session_start();
                                 $_SESSION['username'] = $r[1];
                                 $_SESSION['userid'] = $r[0];
                                 $_SESSION['role'] = $r[2];
+                                $_SESSION['fname']= $fname;
+                                $_SESSION['lname'] = $lname;
                                 echo $_SESSION['username'];
                                 break;
                             }
@@ -36,7 +48,9 @@
                                 $location = "\clothbox\public_html\\views\login.php";  
                             }
                             else{
-                                $location = "\clothbox\index.php";
+                                $location = '\clothbox\public_html\views\\';
+                                $location.=$_SESSION["role"];
+                                $location.='.php';
                             }
                             header("Location: " . "http://" . $_SERVER['HTTP_HOST'].$location);
                         echo "<script>console.log('Connected');</script>";

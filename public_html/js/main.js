@@ -21,7 +21,7 @@ function validateName(element){
 }
 
 function validatePass(){
-
+//Use a progress bar to show how strong password is.
 }
 
 function checkPass(){

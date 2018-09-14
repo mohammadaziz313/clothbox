@@ -9,7 +9,7 @@
                     $lname = $_POST['lname'];
                     $upass1 = $_POST['pass1'];
                     $upass2 = $_POST['pass2'];
-                    $uname = $_POST['email1'];
+                    $uname = $_POST['email'];
                     
                     if(isset($_POST['check1']))
                         $role = $_POST['check1'];
@@ -46,6 +46,8 @@
                                // echo "<script>console.log('Found');</script>";
                                 session_start();
                                 $_SESSION['username'] = $uname;
+                                $_SESSION['fname'] = $fname;
+                                $_SESSION['lname'] = $lname;
                                 //$_SESSION['userid'] = $r[0];
                                 $_SESSION['role'] = $role;
                                 echo $_SESSION['username'];
@@ -56,7 +58,7 @@
                              //   $location = "\clothbox\public_html\\views\login.php";  
                            // }
                             //else{
-                                $location = "\clothbox\index.php";
+                                $location = '\clothbox\public_html\views\\'.$_SESSION['role'].'.php';
                             //}
                             header("Location: " . "http://" . $_SERVER['HTTP_HOST'].$location);
                         echo "<script>console.log('Connected');</script>";
